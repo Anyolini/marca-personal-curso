@@ -4,8 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marca Personal Imparable · AMYOLINI</title>
+
+  <!-- Estilos opcionales -->
   <link rel="stylesheet" href="flipcard-styles.css" />
-  <script type="module" src="flipcardEngine.js"></script>
+
+  <!-- Motor interactivo -->
+  <script type="module" src="FlipCardEngine.js"></script>
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -24,12 +29,17 @@
     }
   </style>
 </head>
+
 <body>
   <h1>🌸 Marca Personal Imparable</h1>
-  <p>Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano. Aquí comienzas a construir tu marca con autenticidad y visión.</p>
+  <p>
+    Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano.
+    Aquí comienzas a construir tu marca con autenticidad y visión.
+  </p>
 
   <div id="flipcard-container"></div>
 
+  <!-- Script principal -->
   <script type="module">
     import { FlipCardEngine } from './FlipCardEngine.js';
 
@@ -62,10 +72,17 @@
       }
     ];
 
-    const engine = new FlipCardEngine(config);
-    await engine.initialize('#flipcard-container');
-await engine.loadCards(cards);
-await engine.startCard('card1');
+    async function startCourse() {
+      const engine = new FlipCardEngine(config);
+      await engine.initialize('#flipcard-container');
+      await engine.loadCards(cards);
+      await engine.startCard('card1'); // Mostrar primera tarjeta
+    }
+
+    startCourse();
   </script>
+</body>
+</html>
+
 </body>
 </html>
