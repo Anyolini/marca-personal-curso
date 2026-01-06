@@ -64,7 +64,8 @@
 
     const engine = new FlipCardEngine(config);
     await engine.initialize('#flipcard-container');
-    await engine.loadCards(cards);
+await engine.loadCards(cards);
+await engine.startCard('card1');
   </script>
 </body>
 </html>
