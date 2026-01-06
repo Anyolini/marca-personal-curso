@@ -3,6 +3,7 @@ export class FlipCardEngine {
     this.config = config;
     this.cards = [];
     this.container = null;
+    this.currentIndex = 0;
   }
 
   async initialize(containerSelector) {
@@ -25,6 +26,7 @@ export class FlipCardEngine {
           ${opt.text}
         </button>
       `).join('')}
+      <div id="feedback" style="margin-top:1rem;"></div>
     `;
   }
 
@@ -33,7 +35,23 @@ export class FlipCardEngine {
     if (!card) return;
 
     const correct = card.correctOptionId === optionId;
-    alert(correct ? "✅ ¡Correcto!" : "❌ Intenta de nuevo");
+    const feedback = document.getElementById('feedback');
+    feedback.innerHTML = correct
+      ? `<p class="feedback">✅ ¡Correcto! Tu marca comienza con autenticidad.</p>`
+      : `<p class="feedback" style="color:#c62828;">❌ Intenta de nuevo</p>`;
+
+    if (correct) {
+      this.currentIndex++;
+      if (this.currentIndex < this.cards.length) {
+        setTimeout(() => {
+          this.startCard(this.cards[this.currentIndex].id);
+        }, 1500);
+      } else {
+        setTimeout(() => {
+          this.container.innerHTML = `<h2>🌟 ¡Has completado el curso interactivo!</h2>`;
+        }, 1500);
+      }
+    }
   }
 }
 
