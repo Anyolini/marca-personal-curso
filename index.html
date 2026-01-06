@@ -1,1 +1,74 @@
-<link rel="stylesheet" href="flipcard-styles.css" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marca Personal Imparable</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="flipcard-styles.css" />
+
+  <!-- Motor interactivo -->
+  <script type="module" src="FlipCardEngine.js"></script>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color: #fdf7fb; margin: 0; padding: 2rem;">
+
+  <header style="text-align: center; margin-bottom: 2rem;">
+    <h1 style="color: #b85c9e; font-size: 2.2rem; margin-bottom: 0.5rem;">
+      🌸 Marca Personal Imparable
+    </h1>
+    <p style="color: #555; font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+      Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano.
+      Aquí comienzas a construir tu marca con autenticidad.
+    </p>
+  </header>
+
+  <!-- Contenedor donde aparecerán las tarjetas -->
+  <div id="flipcard-container"></div>
+
+  <!-- Script principal -->
+  <script type="module">
+    import { FlipCardEngine } from './FlipCardEngine.js';
+
+    const config = {
+      difficulty: 'adaptive',
+      analytics: true,
+      autoSave: true
+    };
+
+    const cards = [
+      {
+        id: 'card1',
+        question: '¿Qué es una marca personal?',
+        options: [
+          { id: 'a', text: 'Un logotipo bonito' },
+          { id: 'b', text: 'La esencia que comunicas al mundo' },
+          { id: 'c', text: 'Tu perfil en redes sociales' }
+        ],
+        correctOptionId: 'b'
+      },
+      {
+        id: 'card2',
+        question: '¿Qué elemento es esencial para una marca auténtica?',
+        options: [
+          { id: 'a', text: 'Copiar a otros' },
+          { id: 'b', text: 'Mostrar tu esencia real' },
+          { id: 'c', text: 'Publicar todos los días sin parar' }
+        ],
+        correctOptionId: 'b'
+      }
+    ];
+
+    async function startCourse() {
+      const engine = new FlipCardEngine(config);
+      await engine.initialize('#flipcard-container');
+      await engine.loadCards(cards);
+      await engine.startCard('card1');
+    }
+
+    startCourse();
+  </script>
+
+</body>
+</html>
