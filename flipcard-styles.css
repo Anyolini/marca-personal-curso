@@ -1,0 +1,38 @@
+#flipcard-container {
+  background-color: #fff0f6;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(184, 92, 158, 0.2);
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+#flipcard-container h2 {
+  font-size: 1.8rem;
+  color: #b85c9e;
+  margin-bottom: 1.5rem;
+}
+
+#flipcard-container button {
+  display: inline-block;
+  background-color: #b85c9e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#flipcard-container button:hover {
+  background-color: #a04d8a;
+  transform: scale(1.05);
+}
+
+#flipcard-container button:active {
+  background-color: #8c3c76;
+  transform: scale(0.98);
+}
