@@ -1,3 +1,4 @@
+/* --- Contenedor principal --- */
 #flipcard-container {
   background-color: #fff0f6;
   border-radius: 12px;
@@ -8,12 +9,14 @@
   text-align: center;
 }
 
+/* --- Título de cada tarjeta --- */
 #flipcard-container h2 {
   font-size: 1.8rem;
   color: #b85c9e;
   margin-bottom: 1.5rem;
 }
 
+/* --- Botones de opciones --- */
 #flipcard-container button {
   display: inline-block;
   background-color: #b85c9e;
@@ -27,12 +30,31 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* --- Hover de botones --- */
 #flipcard-container button:hover {
   background-color: #a04d8a;
   transform: scale(1.05);
 }
 
+/* --- Click de botones --- */
 #flipcard-container button:active {
   background-color: #8c3c76;
   transform: scale(0.98);
+}
+
+/* --- Mensajes de retroalimentación --- */
+.feedback {
+  font-size: 1.2rem;
+  background-color: #e8f5e9;
+  color: #4caf50;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* --- Animación suave --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
