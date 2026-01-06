@@ -1,0 +1,98 @@
+{
+  "name": "@amyolini/interactive-learning",
+  "version": "2.0.0",
+  "description": "Sistemas interactivos de aprendizaje para Marca Personal Imparable",
+  "author": "amyolini",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./flipcards": {
+      "import": "./dist/flipcards.es.js",
+      "require": "./dist/flipcards.js",
+      "types": "./dist/flipcards.d.ts"
+    },
+    "./videos": {
+      "import": "./dist/videos.es.js",
+      "require": "./dist/videos.js",
+      "types": "./dist/videos.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:lib": "vite build --mode lib",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint src --ext ts,tsx --fix",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write src/**/*.{ts,tsx,css,md}",
+    "prepare": "husky install",
+    "release": "semantic-release"
+  },
+  "dependencies": {
+    "zustand": "^4.4.7",
+    "nanoid": "^5.0.4",
+    "date-fns": "^3.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vitejs/plugin-dts": "^3.7.0",
+    "@vitest/coverage-v8": "^1.1.0",
+    "@vitest/ui": "^1.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.0",
+    "husky": "^8.0.3",
+    "jsdom": "^23.0.1",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "semantic-release": "^22.0.12",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.7.0",
+    "vitest": "^1.1.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,md,json}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "education",
+    "interactive-learning",
+    "flipcards",
+    "video-checkpoints",
+    "marca-personal",
+    "amyolini",
+    "typescript",
+    "modern-web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amyolini/interactive-learning.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amyolini/interactive-learning/issues"
+  },
+  "homepage": "https://amyolini.com"
+}
