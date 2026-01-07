@@ -3,42 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marca Personal Imparable · AMYOLINI</title>
-  <link rel="stylesheet" href="flipcard-styles.css" />
-  <script type="module" src="flipcard-engine.js"></script>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fdf8f5;
-      color: #333;
-      margin: 0;
-      padding: 2rem;
-    }
-    h1 {
-      color: #b85c9e;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    #flipcard-container {
-      margin-top: 2rem;
-    }
-  </style>
-</head>
-<body>
-  <h1>🌸 Marca Personal Imparable</h1>
-  <p>Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano. Aquí comienzas a construir tu marca con autenticidad y visión.</p>
+  <title>Marca Personal Imparable</title>
 
+  <!-- Estilos visuales -->
+  <link rel="stylesheet" href="flipcard-styles.css" />
+
+  <!-- Motor interactivo -->
+  <script src="flipcardengine.js"></script>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color: #fdf7fb; margin: 0; padding: 2rem;">
+
+  <!-- Encabezado poético -->
+  <header style="text-align: center; margin-bottom: 2rem;">
+    <h1 style="color: #b85c9e; font-size: 2.2rem; margin-bottom: 0.5rem;">
+      🌸 Marca Personal Imparable
+    </h1>
+    <p style="color: #555; font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+      Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano.
+      Aquí comienzas a construir tu marca con autenticidad.
+    </p>
+  </header>
+
+  <!-- Contenedor de tarjetas -->
   <div id="flipcard-container"></div>
 
-  <script type="module">
-    import { FlipCardEngine } from './FlipCardEngine.js';
-
-    const config = {
-      difficulty: 'adaptive',
-      analytics: true,
-      autoSave: true
-    };
-
+  <!-- Script principal -->
+  <script>
     const cards = [
       {
         id: 'card1',
@@ -52,19 +43,24 @@
       },
       {
         id: 'card2',
-        question: '¿Cuál es el primer paso para construirla?',
+        question: '¿Qué elemento es esencial para una marca auténtica?',
         options: [
-          { id: 'a', text: 'Copiar a alguien exitoso' },
-          { id: 'b', text: 'Descubrir tu propósito y valores' },
-          { id: 'c', text: 'Crear una página web' }
+          { id: 'a', text: 'Copiar a otros' },
+          { id: 'b', text: 'Mostrar tu esencia real' },
+          { id: 'c', text: 'Publicar todos los días sin parar' }
         ],
         correctOptionId: 'b'
       }
     ];
 
-    const engine = new FlipCardEngine(config);
-    await engine.initialize('#flipcard-container');
-    await engine.loadCards(cards);
+    async function startCourse() {
+      await window.flipcardengine.initialize('#flipcard-container');
+      await window.flipcardengine.loadCards(cards);
+      await window.flipcardengine.startCard('card1');
+    }
+
+    startCourse();
   </script>
+
 </body>
 </html>
