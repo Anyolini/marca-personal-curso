@@ -36,6 +36,7 @@ export class FlipCardEngine {
 
     const correct = card.correctOptionId === optionId;
     const feedback = document.getElementById('feedback');
+
     feedback.innerHTML = correct
       ? `<p class="feedback">✅ ¡Correcto! Tu marca comienza con autenticidad.</p>`
       : `<p class="feedback" style="color:#c62828;">❌ Intenta de nuevo</p>`;
