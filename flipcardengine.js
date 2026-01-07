@@ -22,7 +22,7 @@ export class FlipCardEngine {
     this.container.innerHTML = `
       <h2>${card.question}</h2>
       ${card.options.map(opt => `
-        <button onclick="window.flipCardEngine.answerCard('${card.id}', '${opt.id}')">
+        <button onclick="window.flipcardengine.answerCard('${card.id}', '${opt.id}')">
           ${opt.text}
         </button>
       `).join('')}
@@ -55,7 +55,7 @@ export class FlipCardEngine {
   }
 }
 
-window.flipCardEngine = new FlipCardEngine({
+window.flipcardengine = new FlipCardEngine({
   difficulty: 'adaptive',
   analytics: true,
   autoSave: true
