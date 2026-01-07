@@ -1,4 +1,4 @@
-export class FlipCardEngine {
+class FlipCardEngine {
   constructor(config) {
     this.config = config;
     this.cards = [];
