@@ -80,4 +80,37 @@
       },
 
       {
-        id
+               id: 'card6',
+        question: 'Mini Manifiesto: ¿Qué frase representa mejor tu visión?',
+        options: [
+          { id: 'a', text: 'Mi marca florece cuando soy fiel a mí misma' },
+          { id: 'b', text: 'Mi esencia guía mi presencia' },
+          { id: 'c', text: 'Mi autenticidad es mi mayor estrategia' }
+        ],
+        correctOptionId: 'a'
+      },
+
+      {
+        id: 'card7',
+        question: 'Cierre del módulo: ¿Qué sembraste hoy en tu camino de marca personal?',
+        options: [
+          { id: 'a', text: 'Una estrategia perfecta' },
+          { id: 'b', text: 'Una semilla de verdad' },
+          { id: 'c', text: 'Una imagen bonita' }
+        ],
+        correctOptionId: 'b'
+      }
+    ];
+
+    async function startCourse() {
+      await window.flipcardengine.initialize('#flipcard-container');
+      await window.flipcardengine.loadCards(cards);
+      await window.flipcardengine.startCard('card1');
+    }
+
+    startCourse();
+  </script>
+
+</body>
+</html>
+
