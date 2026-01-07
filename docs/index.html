@@ -1,66 +1,79 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marca Personal Imparable</title>
+const cards = [
+  {
+    id: 'card1',
+    question: 'Bienvenida a tu espacio de autenticidad. ¿Qué representa realmente tu marca personal?',
+    options: [
+      { id: 'a', text: 'Una versión perfecta de ti' },
+      { id: 'b', text: 'Tu esencia hecha presencia' },
+      { id: 'c', text: 'Un conjunto de colores y logos' }
+    ],
+    correctOptionId: 'b'
+  },
 
-  <!-- Estilos visuales -->
-  <link rel="stylesheet" href="flipcard-styles.css" />
+  {
+    id: 'card2',
+    question: '¿Qué define mejor una marca personal auténtica?',
+    options: [
+      { id: 'a', text: 'Publicar todos los días sin parar' },
+      { id: 'b', text: 'La esencia que comunicas al mundo' },
+      { id: 'c', text: 'Tener miles de seguidores' }
+    ],
+    correctOptionId: 'b'
+  },
 
-  <!-- Motor interactivo -->
-  <script src="flipcardengine.js"></script>
-</head>
+  {
+    id: 'card3',
+    question: '¿Cuál de estos NO construye una marca auténtica?',
+    options: [
+      { id: 'a', text: 'Copiar a otros' },
+      { id: 'b', text: 'Mostrar tu esencia real' },
+      { id: 'c', text: 'Ser coherente con tus valores' }
+    ],
+    correctOptionId: 'a'
+  },
 
-<body style="font-family: Arial, sans-serif; background-color: #fdf7fb; margin: 0; padding: 2rem;">
+  {
+    id: 'card4',
+    question: 'Tu esencia es tu raíz. ¿Qué palabra describe mejor cómo se siente tu esencia hoy?',
+    options: [
+      { id: 'a', text: 'Suave' },
+      { id: 'b', text: 'Fuerte' },
+      { id: 'c', text: 'En crecimiento' }
+    ],
+    correctOptionId: 'c'
+  },
 
-  <!-- Encabezado poético -->
-  <header style="text-align: center; margin-bottom: 2rem;">
-    <h1 style="color: #b85c9e; font-size: 2.2rem; margin-bottom: 0.5rem;">
-      🌸 Marca Personal Imparable
-    </h1>
-    <p style="color: #555; font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
-      Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano.
-      Aquí comienzas a construir tu marca con autenticidad.
-    </p>
-  </header>
+  {
+    id: 'card5',
+    question: '¿Qué tono refleja mejor tu verdad al comunicar?',
+    options: [
+      { id: 'a', text: 'Inspiradora' },
+      { id: 'b', text: 'Elegante' },
+      { id: 'c', text: 'Poética' },
+      { id: 'd', text: 'Directa' }
+    ],
+    correctOptionId: 'a' // No importa cuál sea correcta, es reflexión
+  },
 
-  <!-- Contenedor de tarjetas -->
-  <div id="flipcard-container"></div>
+  {
+    id: 'card6',
+    question: 'Mini Manifiesto: ¿Qué frase representa mejor tu visión?',
+    options: [
+      { id: 'a', text: 'Mi marca florece cuando soy fiel a mí misma' },
+      { id: 'b', text: 'Mi esencia guía mi presencia' },
+      { id: 'c', text: 'Mi autenticidad es mi mayor estrategia' }
+    ],
+    correctOptionId: 'a'
+  },
 
-  <!-- Script principal -->
-  <script>
-    const cards = [
-      {
-        id: 'card1',
-        question: '¿Qué es una marca personal?',
-        options: [
-          { id: 'a', text: 'Un logotipo bonito' },
-          { id: 'b', text: 'La esencia que comunicas al mundo' },
-          { id: 'c', text: 'Tu perfil en redes sociales' }
-        ],
-        correctOptionId: 'b'
-      },
-      {
-        id: 'card2',
-        question: '¿Qué elemento es esencial para una marca auténtica?',
-        options: [
-          { id: 'a', text: 'Copiar a otros' },
-          { id: 'b', text: 'Mostrar tu esencia real' },
-          { id: 'c', text: 'Publicar todos los días sin parar' }
-        ],
-        correctOptionId: 'b'
-      }
-    ];
-
-    async function startCourse() {
-      await window.flipcardengine.initialize('#flipcard-container');
-      await window.flipcardengine.loadCards(cards);
-      await window.flipcardengine.startCard('card1');
-    }
-
-    startCourse();
-  </script>
-
-</body>
-</html>
+  {
+    id: 'card7',
+    question: 'Cierre del módulo: ¿Qué sembraste hoy en tu camino de marca personal?',
+    options: [
+      { id: 'a', text: 'Una estrategia perfecta' },
+      { id: 'b', text: 'Una semilla de verdad' },
+      { id: 'c', text: 'Una imagen bonita' }
+    ],
+    correctOptionId: 'b'
+  }
+];
