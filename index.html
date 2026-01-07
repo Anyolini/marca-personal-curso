@@ -7,6 +7,9 @@
 
   <!-- Estilos visuales -->
   <link rel="stylesheet" href="flipcard-styles.css" />
+
+  <!-- Motor interactivo -->
+  <script src="flipcardengine.js"></script>
 </head>
 
 <body style="font-family: Arial, sans-serif; background-color: #fdf7fb; margin: 0; padding: 2rem;">
@@ -26,15 +29,7 @@
   <div id="flipcard-container"></div>
 
   <!-- Script principal -->
-  <script type="module">
-    import { FlipCardEngine } from './FlipCardEngine.js';
-
-    const config = {
-      difficulty: 'adaptive',
-      analytics: true,
-      autoSave: true
-    };
-
+  <script>
     const cards = [
       {
         id: 'card1',
@@ -59,10 +54,9 @@
     ];
 
     async function startCourse() {
-      const engine = new FlipCardEngine(config);
-      await engine.initialize('#flipcard-container');
-      await engine.loadCards(cards);
-      await engine.startCard('card1');
+      await window.flipcardengine.initialize('#flipcard-container');
+      await window.flipcardengine.loadCards(cards);
+      await window.flipcardengine.startCard('card1');
     }
 
     startCourse();
