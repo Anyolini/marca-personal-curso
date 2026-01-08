@@ -1,55 +1,68 @@
-/* --- Contenedor principal --- */
+/* --- Fondo general del curso --- */
+body {
+  background-color: #ffffff; /* blanco puro */
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #003366; /* azul milenium */
+}
+
+/* --- Contenedor principal de tarjetas --- */
 #flipcard-container {
-  background-color: #fff0f6;
-  border-radius: 12px;
+  background-color: #f7f4ef; /* blanco hueso */
+  border: 2px solid #d4af37; /* dorado suave */
+  border-radius: 14px;
   padding: 2rem;
-  box-shadow: 0 4px 12px rgba(184, 92, 158, 0.2);
-  max-width: 600px;
+  max-width: 650px;
   margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15); /* sombra dorada suave */
   text-align: center;
 }
 
 /* --- Título de cada tarjeta --- */
 #flipcard-container h2 {
   font-size: 1.8rem;
-  color: #b85c9e;
+  color: #003366; /* azul milenium */
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 /* --- Botones de opciones --- */
 #flipcard-container button {
   display: inline-block;
-  background-color: #b85c9e;
+  background-color: #003366; /* azul milenium */
   color: white;
-  border: none;
-  border-radius: 8px;
+  border: 2px solid #d4af37; /* borde dorado */
+  border-radius: 10px;
   padding: 0.75rem 1.5rem;
   margin: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 /* --- Hover de botones --- */
 #flipcard-container button:hover {
-  background-color: #a04d8a;
+  background-color: #d4af37; /* dorado */
+  color: #003366; /* azul milenium */
   transform: scale(1.05);
 }
 
 /* --- Click de botones --- */
 #flipcard-container button:active {
-  background-color: #8c3c76;
-  transform: scale(0.98);
+  background-color: #bfa76f; /* dorado más suave */
+  transform: scale(0.97);
 }
 
 /* --- Mensajes de retroalimentación --- */
 .feedback {
   font-size: 1.2rem;
   background-color: #e8f5e9;
-  color: #4caf50;
+  color: #2e7d32;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-top: 1rem;
+  border: 1px solid #c8e6c9;
   animation: fadeIn 0.5s ease-in-out;
 }
 
