@@ -3,7 +3,7 @@
 Este proyecto nace del deseo de transformar el aprendizaje en una experiencia poética, estratégica y profundamente humana.  
 Aquí encontrarás el motor interactivo que impulsa el curso **“Marca Personal Imparable”**, diseñado para guiar a cada persona a descubrir su esencia, construir su presencia digital y comunicar con autenticidad.
 
-Desarrollado con ❤️ por Anyolini para la comunidad global de creadores que desean dejar huella.
+Desarrollado con ❤️ por Amyolini para la comunidad global de creadores que desean dejar huella.
 
 ---
 
