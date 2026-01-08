@@ -1,3 +1,6 @@
+.hidden {
+  display: none;
+}
 /* --- Fondo general del curso --- */
 body {
   background-color: #ffffff; /* blanco puro */
