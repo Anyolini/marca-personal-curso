@@ -1,65 +1,88 @@
-class FlipCardEngine {
-  constructor(config) {
-    this.config = config;
-    this.cards = [];
-    this.container = null;
-    this.currentIndex = 0;
+// Tarjetas del Módulo 1
+const cards = [
+  {
+    id: 'card1',
+    question: '¿Cuál es el primer paso para crear una marca personal auténtica?',
+    options: [
+      { id: 'a', text: 'Elegir colores y tipografía' },
+      { id: 'b', text: 'Definir tu esencia y visión' },
+      { id: 'c', text: 'Abrir una cuenta en redes sociales' }
+    ],
+    correctOptionId: 'b'
+  },
+  {
+    id: 'card2',
+    question: '¿Qué elemento es esencial para tu propuesta de valor?',
+    options: [
+      { id: 'a', text: 'Tu historia personal' },
+      { id: 'b', text: 'Tu número de seguidores' },
+      { id: 'c', text: 'Tu color favorito' }
+    ],
+    correctOptionId: 'a'
+  },
+  {
+    id: 'card3',
+    question: '¿Qué arquetipo representa una marca que guía con sabiduría?',
+    options: [
+      { id: 'a', text: 'La Heroína' },
+      { id: 'b', text: 'La Sabia' },
+      { id: 'c', text: 'La Creadora' }
+    ],
+    correctOptionId: 'b'
   }
+];
 
-  async initialize(containerSelector) {
-    this.container = document.querySelector(containerSelector);
-    if (!this.container) throw new Error("Contenedor no encontrado");
-  }
+let currentCardIndex = 0;
 
-  async loadCards(cards) {
-    this.cards = cards;
-  }
+// Renderizar tarjeta
+function renderCard() {
+  const container = document.getElementById('flipcard-container');
+  const card = cards[currentCardIndex];
 
-  async startCard(cardId) {
-    const card = this.cards.find(c => c.id === cardId);
-    if (!card || !this.container) return;
-
-    this.container.innerHTML = `
-      <h2>${card.question}</h2>
-      ${card.options.map(opt => `
-        <button onclick="window.flipcardengine.answerCard('${card.id}', '${opt.id}')">
-          ${opt.text}
-        </button>
-      `).join('')}
-      <div id="feedback" style="margin-top:1rem;"></div>
-    `;
-  }
-
-  async answerCard(cardId, optionId) {
-    const card = this.cards.find(c => c.id === cardId);
-    if (!card) return;
-
-    const correct = card.correctOptionId === optionId;
-    const feedback = document.getElementById('feedback');
-
-    feedback.innerHTML = correct
-      ? `<p class="feedback">✅ ¡Correcto! Tu marca comienza con autenticidad.</p>`
-      : `<p class="feedback" style="color:#c62828;">❌ Intenta de nuevo</p>`;
-
-    if (correct) {
-      this.currentIndex++;
-     if (this.currentIndex < this.cards.length) {
-  setTimeout(() => {
-    this.startCard(this.cards[this.currentIndex].id);
-  }, 1500);
-} else {
-  setTimeout(() => {
-    this.container.innerHTML = `<h2>🌟 ¡Has completado el Módulo 1!</h2>`;
-
-    // Avisar al resto de la página que el módulo terminó
-    if (window.onModule1Completed) {
-      window.onModule1Completed();
-    }
-  }, 1500);
+  container.innerHTML = `
+    <h2>${card.question}</h2>
+    ${card.options
+      .map(
+        (opt) =>
+          `<button onclick="checkAnswer('${opt.id}')">${opt.text}</button>`
+      )
+      .join('')}
+  `;
 }
-      
-window.flipcardengine = new FlipCardEngine({
-  difficulty: 'adaptive',
-  analytics: true,
-  autoSave: true
-});
+
+// Verificar respuesta
+function checkAnswer(selectedId) {
+  const card = cards[currentCardIndex];
+  const container = document.getElementById('flipcard-container');
+
+  const isCorrect = selectedId === card.correctOptionId;
+
+  container.innerHTML += `
+    <div class="feedback">
+      ${isCorrect ? '¡Correcto! 🌟' : 'Respuesta incorrecta. Inténtalo de nuevo.'}
+    </div>
+  `;
+
+  if (isCorrect) {
+    setTimeout(() => {
+      currentCardIndex++;
+      if (currentCardIndex < cards.length) {
+        renderCard();
+      } else {
+        showEndMessage();
+      }
+    }, 1200);
+  }
+}
+
+// Mensaje final
+function showEndMessage() {
+  const container = document.getElementById('flipcard-container');
+  container.innerHTML = `
+    <h2>Has completado el Módulo 1 🌸</h2>
+    <p>Ahora estás lista para avanzar al Módulo 2.</p>
+  `;
+}
+
+// Iniciar
+renderCard();
