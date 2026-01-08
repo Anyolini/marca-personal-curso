@@ -21,6 +21,60 @@
 
   <!-- Motor del curso -->
   <script src="flipcardengine.js"></script>
+<!-- Pantalla de Celebración AMYOLINI -->
+<div id="celebrationScreen" class="celebration-screen hidden">
+
+    <!-- Capa de fondo -->
+    <div class="celebration-background">
+        <div class="background-gradient"></div>
+        <div class="background-lines"></div>
+        <div class="background-particles"></div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="celebration-content">
+
+        <!-- Montaña -->
+        <div class="mountain-container">
+
+            <!-- Base de la montaña -->
+            <div class="mountain-base mountain-section"></div>
+
+            <!-- Ascenso -->
+            <div class="mountain-mid mountain-section"></div>
+
+            <!-- Cima -->
+            <div class="mountain-top mountain-section"></div>
+
+            <!-- Bandera -->
+            <div class="mountain-flag">
+                <span>MI PROPIA MARCA</span>
+            </div>
+
+            <!-- Ruta minimalista -->
+            <svg class="mountain-path" viewBox="0 0 300 200">
+                <path d="M10 180 L100 120 L180 80 L260 40" />
+            </svg>
+
+        </div>
+
+        <!-- Mensaje poético -->
+        <div class="celebration-message">
+            <h2 id="celebrationTitle"></h2>
+            <p id="celebrationText"></p>
+        </div>
+
+        <!-- Botón editorial -->
+        <button id="continueButton" class="celebration-button">
+            Continuar al siguiente módulo
+        </button>
+
+    </div>
+
+    <!-- Sonido de viento (autoplay + loop) -->
+    <audio id="windSound" src="wind-sound.mp3" loop></audio>
+
+</div>
 
 </body>
 </html>
