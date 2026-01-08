@@ -5,222 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marca Personal Imparable</title>
 
-  <!-- Estilos -->
+  <!-- Estilos del módulo -->
   <link rel="stylesheet" href="flipcard-styles.css" />
-
-      #transition-screen button,
-    #module2-container button {
-      background-color: #b85c9e;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 0.75rem 1.5rem;
-      margin-top: 1.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    #transition-screen button:hover,
-    #module2-container button:hover {
-      background-color: #a04d8a;
-      transform: scale(1.05);
-    }
-
-    .video-description {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .reflection-section {
-      text-align: left;
-      margin-top: 2rem;
-    }
-
-    .reflection-section h3 {
-      color: #b85c9e;
-      margin-bottom: 1rem;
-    }
-
-    .reflection-question {
-      margin-bottom: 1rem;
-    }
-
-    .reflection-question textarea {
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid #e0c2d8;
-      padding: 0.5rem;
-      font-family: inherit;
-      font-size: 0.95rem;
-      resize: vertical;
-    }
-
-    .module-complete {
-      text-align: center;
-    }
-  </style>
 </head>
 
 <body>
 
   <h1>Marca Personal Imparable</h1>
-  <p class="intro">Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano.</p>
+  <p class="intro">
+    Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano.
+  </p>
 
-  <!-- Módulo 1: tarjetas -->
+  <!-- Contenedor donde aparecerán las tarjetas -->
   <div id="flipcard-container"></div>
 
-  <!-- Pantalla de transición entre módulo 1 y módulo 2 -->
-  <div id="transition-screen">
-    <h2>🌸 Has sembrado tu primera semilla</h2>
-    <p style="font-size:1.1rem;">
-      Has completado el Módulo 1.<br>
-      Ahora vamos a darle movimiento y presencia viva a tu marca.
-    </p>
-    <p>
-      En el Módulo 2, verás un video guiado donde conectarás tu esencia con tu identidad visual,
-      tu lenguaje y tu forma de aparecer en el mundo.
-    </p>
-    <button onclick="startModule2()">✨ Continuar al Módulo 2</button>
-  </div>
-
-  <!-- Módulo 2: video + reflexión -->
-  <div id="module2-container"></div>
-
-  <!-- Motor del curso (Módulo 1) -->
+  <!-- Motor del curso -->
   <script src="flipcardengine.js"></script>
-
-  <!-- Motor del video ligero (Módulo 2) -->
-  <script src="videoengine-light.js"></script>
-
-  <!-- Tarjetas del Módulo 1 -->
-  <script>
-    const cards = [
-      {
-        id: 'card1',
-        question: 'Bienvenida a tu espacio de autenticidad. ¿Qué representa realmente tu marca personal?',
-        options: [
-          { id: 'a', text: 'Una versión perfecta de ti' },
-          { id: 'b', text: 'Tu esencia hecha presencia' },
-          { id: 'c', text: 'Un conjunto de colores y logos' }
-        ],
-        correctOptionId: 'b'
-      },
-      {
-        id: 'card2',
-        question: '¿Qué define mejor una marca personal auténtica?',
-        options: [
-          { id: 'a', text: 'Publicar todos los días sin parar' },
-          { id: 'b', text: 'La esencia que comunicas al mundo' },
-          { id: 'c', text: 'Tener miles de seguidores' }
-        ],
-        correctOptionId: 'b'
-      },
-      {
-        id: 'card3',
-        question: '¿Cuál de estos NO construye una marca auténtica?',
-        options: [
-          { id: 'a', text: 'Copiar a otros' },
-          { id: 'b', text: 'Mostrar tu esencia real' },
-          { id: 'c', text: 'Ser coherente con tus valores' }
-        ],
-        correctOptionId: 'a'
-      },
-      {
-        id: 'card4',
-        question: 'Tu esencia es tu raíz. ¿Qué palabra describe mejor cómo se siente tu esencia hoy?',
-        options: [
-          { id: 'a', text: 'Suave' },
-          { id: 'b', text: 'Fuerte' },
-          { id: 'c', text: 'En crecimiento' }
-        ],
-        correctOptionId: 'c'
-      },
-      {
-        id: 'card5',
-        question: '¿Qué tono refleja mejor tu verdad al comunicar?',
-        options: [
-          { id: 'a', text: 'Inspiradora' },
-          { id: 'b', text: 'Elegante' },
-          { id: 'c', text: 'Poética' },
-          { id: 'd', text: 'Directa' }
-        ],
-        correctOptionId: 'a'
-      },
-      {
-        id: 'card6',
-        question: 'Mini Manifiesto: ¿Qué frase representa mejor tu visión?',
-        options: [
-          { id: 'a', text: 'Mi marca florece cuando soy fiel a mí misma' },
-          { id: 'b', text: 'Mi esencia guía mi presencia' },
-          { id: 'c', text: 'Mi autenticidad es mi mayor estrategia' }
-        ],
-        correctOptionId: 'a'
-      },
-      {
-        id: 'card7',
-        question: 'Cierre del módulo: ¿Qué sembraste hoy en tu camino de marca personal?',
-        options: [
-          { id: 'a', text: 'Una estrategia perfecta' },
-          { id: 'b', text: 'Una semilla de verdad' },
-          { id: 'c', text: 'Una imagen bonita' }
-        ],
-        correctOptionId: 'b'
-      },
-      {
-        id: 'card8',
-        question: 'Has completado esta etapa.\nY aunque ya sembraste tu primera semilla,\nlo que viene ahora es tu verdadera transformación.\nVamos a crear la marca que siempre mereciste,\nla que te hará inolvidable.',
-        options: [
-          { id: 'a', text: 'Continuar' }
-        ],
-        correctOptionId: 'a'
-      }
-    ];
-
-    async function startCourse() {
-      await window.flipcardengine.initialize('#flipcard-container');
-      await window.flipcardengine.loadCards(cards);
-      await window.flipcardengine.startCard('card1');
-    }
-
-    // Esta función la llama FlipCardEngine cuando termina el Módulo 1
-    window.onModule1Completed = function () {
-      const flipContainer = document.getElementById('flipcard-container');
-      const transition = document.getElementById('transition-screen');
-
-      flipContainer.style.display = 'none';
-      transition.style.display = 'block';
-    };
-
-    // Iniciar el curso (Módulo 1)
-    startCourse();
-
-    // Iniciar Módulo 2 cuando la persona haga clic
-    function startModule2() {
-      const transition = document.getElementById('transition-screen');
-      const module2 = document.getElementById('module2-container');
-
-      transition.style.display = 'none';
-      module2.style.display = 'block';
-
-      window.videoEngineLight.initialize('#module2-container');
-
-      window.videoEngineLight.loadModule({
-        title: 'Módulo 2: Tu marca en movimiento',
-        description: 'En este video, vamos a conectar tu esencia con tu forma de aparecer: tu lenguaje, tu presencia y tu energía en cámara.',
-        videoSrc: 'ruta-al-video.mp4', // aquí luego pones tu video real
-        reflectionQuestions: [
-          '¿Qué sentiste al verte o imaginarte en movimiento representando tu marca?',
-          '¿Qué gesto, palabra o energía sientes que es profundamente tuya frente a la audiencia?',
-          '¿Qué promesa le haces hoy a tu marca cuando te presentes en video?'
-        ],
-        onComplete: ({ answers }) => {
-          // Aquí podrías guardar las respuestas en el futuro.
-          console.log('Respuestas del módulo 2:', answers);
-        }
-      });
-    }
-  </script>
 
 </body>
 </html>
