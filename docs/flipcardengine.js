@@ -43,7 +43,7 @@ class FlipCardEngine {
 
     if (correct) {
       this.currentIndex++;
-      if (this.currentIndex < this.cards.length) {
+     if (this.currentIndex < this.cards.length) {
   setTimeout(() => {
     this.startCard(this.cards[this.currentIndex].id);
   }, 1500);
