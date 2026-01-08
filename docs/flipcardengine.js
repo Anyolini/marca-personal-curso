@@ -44,18 +44,20 @@ class FlipCardEngine {
     if (correct) {
       this.currentIndex++;
       if (this.currentIndex < this.cards.length) {
-        setTimeout(() => {
-          this.startCard(this.cards[this.currentIndex].id);
-        }, 1500);
-      } else {
-        setTimeout(() => {
-          this.container.innerHTML = `<h2>🌟 ¡Has completado el curso interactivo!</h2>`;
-        }, 1500);
-      }
-    }
-  }
-}
+  setTimeout(() => {
+    this.startCard(this.cards[this.currentIndex].id);
+  }, 1500);
+} else {
+  setTimeout(() => {
+    this.container.innerHTML = `<h2>🌟 ¡Has completado el Módulo 1!</h2>`;
 
+    // Avisar al resto de la página que el módulo terminó
+    if (window.onModule1Completed) {
+      window.onModule1Completed();
+    }
+  }, 1500);
+}
+      
 window.flipcardengine = new FlipCardEngine({
   difficulty: 'adaptive',
   analytics: true,
