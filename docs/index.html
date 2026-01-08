@@ -7,18 +7,123 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="flipcard-styles.css" />
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #fdf6fb;
+      margin: 0;
+      padding: 2rem 1rem;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #b85c9e;
+    }
+
+    p.intro {
+      text-align: center;
+      max-width: 600px;
+      margin: 0.5rem auto 2rem auto;
+    }
+
+    #transition-screen,
+    #module2-container {
+      max-width: 700px;
+      margin: 2rem auto;
+      background-color: #fff0f6;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(184, 92, 158, 0.2);
+      text-align: center;
+      display: none;
+    }
+
+    #transition-screen button,
+    #module2-container button {
+      background-color: #b85c9e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    #transition-screen button:hover,
+    #module2-container button:hover {
+      background-color: #a04d8a;
+      transform: scale(1.05);
+    }
+
+    .video-description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .reflection-section {
+      text-align: left;
+      margin-top: 2rem;
+    }
+
+    .reflection-section h3 {
+      color: #b85c9e;
+      margin-bottom: 1rem;
+    }
+
+    .reflection-question {
+      margin-bottom: 1rem;
+    }
+
+    .reflection-question textarea {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #e0c2d8;
+      padding: 0.5rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+
+    .module-complete {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
 
   <h1>Marca Personal Imparable</h1>
-  <p>Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano.</p>
+  <p class="intro">Bienvenida a tu espacio de aprendizaje poético, estratégico y profundamente humano.</p>
 
-  <!-- Contenedor donde aparecerán las tarjetas -->
+  <!-- Módulo 1: tarjetas -->
   <div id="flipcard-container"></div>
 
-  <!-- Motor del curso -->
+  <!-- Pantalla de transición entre módulo 1 y módulo 2 -->
+  <div id="transition-screen">
+    <h2>🌸 Has sembrado tu primera semilla</h2>
+    <p style="font-size:1.1rem;">
+      Has completado el Módulo 1.<br>
+      Ahora vamos a darle movimiento y presencia viva a tu marca.
+    </p>
+    <p>
+      En el Módulo 2, verás un video guiado donde conectarás tu esencia con tu identidad visual,
+      tu lenguaje y tu forma de aparecer en el mundo.
+    </p>
+    <button onclick="startModule2()">✨ Continuar al Módulo 2</button>
+  </div>
+
+  <!-- Módulo 2: video + reflexión -->
+  <div id="module2-container"></div>
+
+  <!-- Motor del curso (Módulo 1) -->
   <script src="flipcardengine.js"></script>
+
+  <!-- Motor del video ligero (Módulo 2) -->
+  <script src="videoengine-light.js"></script>
 
   <!-- Tarjetas del Módulo 1 -->
   <script>
@@ -110,7 +215,43 @@
       await window.flipcardengine.startCard('card1');
     }
 
+    // Esta función la llama FlipCardEngine cuando termina el Módulo 1
+    window.onModule1Completed = function () {
+      const flipContainer = document.getElementById('flipcard-container');
+      const transition = document.getElementById('transition-screen');
+
+      flipContainer.style.display = 'none';
+      transition.style.display = 'block';
+    };
+
+    // Iniciar el curso (Módulo 1)
     startCourse();
+
+    // Iniciar Módulo 2 cuando la persona haga clic
+    function startModule2() {
+      const transition = document.getElementById('transition-screen');
+      const module2 = document.getElementById('module2-container');
+
+      transition.style.display = 'none';
+      module2.style.display = 'block';
+
+      window.videoEngineLight.initialize('#module2-container');
+
+      window.videoEngineLight.loadModule({
+        title: 'Módulo 2: Tu marca en movimiento',
+        description: 'En este video, vamos a conectar tu esencia con tu forma de aparecer: tu lenguaje, tu presencia y tu energía en cámara.',
+        videoSrc: 'ruta-al-video.mp4', // aquí luego pones tu video real
+        reflectionQuestions: [
+          '¿Qué sentiste al verte o imaginarte en movimiento representando tu marca?',
+          '¿Qué gesto, palabra o energía sientes que es profundamente tuya frente a la audiencia?',
+          '¿Qué promesa le haces hoy a tu marca cuando te presentes en video?'
+        ],
+        onComplete: ({ answers }) => {
+          // Aquí podrías guardar las respuestas en el futuro.
+          console.log('Respuestas del módulo 2:', answers);
+        }
+      });
+    }
   </script>
 
 </body>
