@@ -153,6 +153,12 @@ function showCelebrationScreen() {
   document.querySelector('.mountain-base').classList.add('visible');
   document.querySelector('.mountain-mid').classList.add('visible');
   document.querySelector('.mountain-top').classList.add('visible');
+  
+// Activar puntos dorados en secuencia
+document.querySelector('.dot-1').classList.add('active');
+setTimeout(() => document.querySelector('.dot-2').classList.add('active'), 400);
+setTimeout(() => document.querySelector('.dot-3').classList.add('active'), 800);
+setTimeout(() => document.querySelector('.dot-4').classList.add('active'), 1200);
 
   // Botón continuar
   document.getElementById('continueButton').onclick = () => {
