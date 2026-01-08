@@ -1,4 +1,6 @@
-// Tarjetas del Módulo 1
+// ===============================
+// TARJETAS DEL MÓDULO 1
+// ===============================
 const cards = [
   {
     id: 'card1',
@@ -32,9 +34,17 @@ const cards = [
   }
 ];
 
+// ===============================
+// VARIABLES DE CONTROL
+// ===============================
 let currentCardIndex = 0;
+let correctAnswers = 0;
+let incorrectCards = [];
 
-// Renderizar tarjeta
+
+// ===============================
+// RENDERIZAR TARJETA
+// ===============================
 function renderCard() {
   const container = document.getElementById('flipcard-container');
   const card = cards[currentCardIndex];
@@ -50,7 +60,10 @@ function renderCard() {
   `;
 }
 
-// Verificar respuesta
+
+// ===============================
+// VERIFICAR RESPUESTA
+// ===============================
 function checkAnswer(selectedId) {
   const card = cards[currentCardIndex];
   const container = document.getElementById('flipcard-container');
@@ -63,26 +76,92 @@ function checkAnswer(selectedId) {
     </div>
   `;
 
-  if (isCorrect) {
-    setTimeout(() => {
-      currentCardIndex++;
-      if (currentCardIndex < cards.length) {
-        renderCard();
-      } else {
-        showEndMessage();
-      }
-    }, 1200);
+  if (!isCorrect) {
+    incorrectCards.push(card);
+  } else {
+    correctAnswers++;
+  }
+
+  setTimeout(() => {
+    currentCardIndex++;
+
+    if (currentCardIndex < cards.length) {
+      renderCard();
+    } else {
+      evaluateProgress();
+    }
+  }, 1200);
+}
+
+
+// ===============================
+// EVALUAR PROGRESO (80%)
+// ===============================
+function evaluateProgress() {
+  const score = (correctAnswers / cards.length) * 100;
+
+  if (score >= 80) {
+    showCelebrationScreen();
+  } else {
+    repeatIncorrectCards();
   }
 }
 
-// Mensaje final
-function showEndMessage() {
-  const container = document.getElementById('flipcard-container');
-  container.innerHTML = `
-    <h2>Has completado el Módulo 1 🌸</h2>
-    <p>Ahora estás lista para avanzar al Módulo 2.</p>
-  `;
+
+// ===============================
+// REPETIR SOLO LAS INCORRECTAS
+// ===============================
+function repeatIncorrectCards() {
+  if (incorrectCards.length === 0) {
+    showCelebrationScreen();
+    return;
+  }
+
+  cards.length = 0;
+  incorrectCards.forEach(c => cards.push(c));
+
+  incorrectCards = [];
+  currentCardIndex = 0;
+  correctAnswers = 0;
+
+  renderCard();
 }
 
-// Iniciar
+
+// ===============================
+// PANTALLA DE CELEBRACIÓN
+// ===============================
+function showCelebrationScreen() {
+  const screen = document.getElementById('celebrationScreen');
+  const title = document.getElementById('celebrationTitle');
+  const text = document.getElementById('celebrationText');
+  const wind = document.getElementById('windSound');
+
+  // Mensaje poético
+  title.textContent = "Has conquistado este módulo";
+  text.textContent =
+    "Tu visión se eleva, tu voz se afina, y tu marca comienza a respirar con fuerza propia.";
+
+  // Mostrar pantalla
+  screen.classList.remove('hidden');
+  screen.classList.add('visible');
+
+  // Reproducir sonido
+  wind.play();
+
+  // Iluminar montaña
+  document.querySelector('.mountain-base').classList.add('visible');
+  document.querySelector('.mountain-mid').classList.add('visible');
+  document.querySelector('.mountain-top').classList.add('visible');
+
+  // Botón continuar
+  document.getElementById('continueButton').onclick = () => {
+    alert("Aquí iría el enlace al siguiente módulo.");
+  };
+}
+
+
+// ===============================
+// INICIAR CURSO
+// ===============================
 renderCard();
