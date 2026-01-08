@@ -164,4 +164,4 @@ function showCelebrationScreen() {
 // ===============================
 // INICIAR CURSO
 // ===============================
-renderCard();
+document.addEventListener("DOMContentLoaded", renderCard);
