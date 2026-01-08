@@ -1,173 +1,117 @@
-// ===============================
-// TARJETAS DEL MÓDULO 1
-// ===============================
-const cards = [
+/* ============================
+   MARCA PERSONAL IMPARABLE
+   Motor del curso AMYOLINI
+============================ */
+
+// Preguntas del módulo
+const questions = [
   {
-    id: 'card1',
-    question: '¿Cuál es el primer paso para crear una marca personal auténtica?',
+    question: "¿Qué es marca personal?",
     options: [
-      { id: 'a', text: 'Elegir colores y tipografía' },
-      { id: 'b', text: 'Definir tu esencia y visión' },
-      { id: 'c', text: 'Abrir una cuenta en redes sociales' }
+      "Tu esencia, tu historia y tu impacto",
+      "Un logo bonito",
+      "Publicar todos los días",
+      "Hablar de ti sin parar"
     ],
-    correctOptionId: 'b'
+    correct: 0
   },
   {
-    id: 'card2',
-    question: '¿Qué elemento es esencial para tu propuesta de valor?',
+    question: "¿Qué hace única tu marca?",
     options: [
-      { id: 'a', text: 'Tu historia personal' },
-      { id: 'b', text: 'Tu número de seguidores' },
-      { id: 'c', text: 'Tu color favorito' }
+      "Tu autenticidad y tu visión",
+      "Imitar a otros",
+      "Seguir tendencias sin propósito",
+      "Cambiar cada semana"
     ],
-    correctOptionId: 'a'
-  },
-  {
-    id: 'card3',
-    question: '¿Qué arquetipo representa una marca que guía con sabiduría?',
-    options: [
-      { id: 'a', text: 'La Heroína' },
-      { id: 'b', text: 'La Sabia' },
-      { id: 'c', text: 'La Creadora' }
-    ],
-    correctOptionId: 'b'
+    correct: 0
   }
 ];
 
-// ===============================
-// VARIABLES DE CONTROL
-// ===============================
-let currentCardIndex = 0;
-let correctAnswers = 0;
-let incorrectCards = [];
+// Estado del curso
+let currentQuestion = 0;
+let score = 0;
 
-
-// ===============================
-// RENDERIZAR TARJETA
-// ===============================
+/* ============================
+   Renderizar tarjeta
+============================ */
 function renderCard() {
-  const container = document.getElementById('flipcard-container');
-  const card = cards[currentCardIndex];
+  const container = document.getElementById("flipcard-container");
+  const q = questions[currentQuestion];
 
   container.innerHTML = `
-    <h2>${card.question}</h2>
-    ${card.options
+    <h2>${q.question}</h2>
+    ${q.options
       .map(
-        (opt) =>
-          `<button onclick="checkAnswer('${opt.id}')">${opt.text}</button>`
+        (opt, i) =>
+          `<button onclick="selectOption(${i})">${opt}</button>`
       )
-      .join('')}
+      .join("")}
   `;
 }
 
+/* ============================
+   Selección de respuesta
+============================ */
+function selectOption(index) {
+  const q = questions[currentQuestion];
+  const container = document.getElementById("flipcard-container");
 
-// ===============================
-// VERIFICAR RESPUESTA
-// ===============================
-function checkAnswer(selectedId) {
-  const card = cards[currentCardIndex];
-  const container = document.getElementById('flipcard-container');
-
-  const isCorrect = selectedId === card.correctOptionId;
-
-  container.innerHTML += `
-    <div class="feedback">
-      ${isCorrect ? '¡Correcto! 🌟' : 'Respuesta incorrecta. Inténtalo de nuevo.'}
-    </div>
-  `;
-
-  if (!isCorrect) {
-    incorrectCards.push(card);
+  if (index === q.correct) {
+    score++;
+    container.innerHTML += `<div class="feedback">¡Correcto! 🌟</div>`;
   } else {
-    correctAnswers++;
+    container.innerHTML += `<div class="feedback">Respuesta incorrecta</div>`;
   }
 
   setTimeout(() => {
-    currentCardIndex++;
-
-    if (currentCardIndex < cards.length) {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
       renderCard();
     } else {
-      evaluateProgress();
+      showCelebrationScreen();
     }
   }, 1200);
 }
 
-
-// ===============================
-// EVALUAR PROGRESO (80%)
-// ===============================
-function evaluateProgress() {
-  const score = (correctAnswers / cards.length) * 100;
-
-  if (score >= 80) {
-    showCelebrationScreen();
-  } else {
-    repeatIncorrectCards();
-  }
-}
-
-
-// ===============================
-// REPETIR SOLO LAS INCORRECTAS
-// ===============================
-function repeatIncorrectCards() {
-  if (incorrectCards.length === 0) {
-    showCelebrationScreen();
-    return;
-  }
-
-  cards.length = 0;
-  incorrectCards.forEach(c => cards.push(c));
-
-  incorrectCards = [];
-  currentCardIndex = 0;
-  correctAnswers = 0;
-
-  renderCard();
-}
-
-
-// ===============================
-// PANTALLA DE CELEBRACIÓN
-// ===============================
+/* ============================
+   Pantalla de celebración
+============================ */
 function showCelebrationScreen() {
-  const screen = document.getElementById('celebrationScreen');
-  const title = document.getElementById('celebrationTitle');
-  const text = document.getElementById('celebrationText');
-  const wind = document.getElementById('windSound');
-
-  // Mensaje poético
-  title.textContent = "Has conquistado este módulo";
-  text.textContent =
-    "Tu visión se eleva, tu voz se afina, y tu marca comienza a respirar con fuerza propia.";
+  const screen = document.getElementById("celebrationScreen");
 
   // Mostrar pantalla
-  screen.classList.remove('hidden');
-  screen.classList.add('visible');
+  screen.classList.remove("hidden");
+  setTimeout(() => screen.classList.add("visible"), 50);
+
+  // Mensaje poético
+  document.getElementById("celebrationTitle").textContent =
+    "Has conquistado este módulo";
+  document.getElementById("celebrationText").textContent =
+    "Tu visión se eleva, tu voz se afina, y tu marca comienza a respirar con fuerza propia.";
+
+  // Iluminar secciones de la montaña
+  document.querySelector(".mountain-base").classList.add("visible");
+  setTimeout(() => document.querySelector(".mountain-mid").classList.add("visible"), 400);
+  setTimeout(() => document.querySelector(".mountain-top").classList.add("visible"), 800);
+
+  // Activar puntos dorados
+  document.querySelector(".dot-1").classList.add("active");
+  setTimeout(() => document.querySelector(".dot-2").classList.add("active"), 400);
+  setTimeout(() => document.querySelector(".dot-3").classList.add("active"), 800);
+  setTimeout(() => document.querySelector(".dot-4").classList.add("active"), 1200);
 
   // Reproducir sonido
+  const wind = document.getElementById("windSound");
+  wind.volume = 0.4;
   wind.play();
 
-  // Iluminar montaña
-  document.querySelector('.mountain-base').classList.add('visible');
-  document.querySelector('.mountain-mid').classList.add('visible');
-  document.querySelector('.mountain-top').classList.add('visible');
-  
-// Activar puntos dorados en secuencia
-document.querySelector('.dot-1').classList.add('active');
-setTimeout(() => document.querySelector('.dot-2').classList.add('active'), 400);
-setTimeout(() => document.querySelector('.dot-3').classList.add('active'), 800);
-setTimeout(() => document.querySelector('.dot-4').classList.add('active'), 1200);
-
   // Botón continuar
-  document.getElementById('continueButton').onclick = () => {
-    alert("Aquí iría el enlace al siguiente módulo.");
+  document.getElementById("continueButton").onclick = () => {
+    alert("Aquí conectaremos el Módulo 2 ✨");
   };
 }
 
-
-// ===============================
-// INICIAR CURSO
-// ===============================
+/* ============================
+   Iniciar curso
+============================ */
 document.addEventListener("DOMContentLoaded", renderCard);
