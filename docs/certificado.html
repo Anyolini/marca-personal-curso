@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificado de Finalización</title>
+  <link rel="stylesheet" href="./certificado-styles.css" />
+</head>
+
+<body>
+  <div class="certificado-wrapper" id="certificado">
+    <img src="ruta-de-tu-logo.png" alt="Logo Amyolini" class="logo-certificado" />
+
+    <h1>Certificado de Finalización</h1>
+
+    <p class="texto-certificado">Este certificado se otorga a:</p>
+
+    <input type="text" id="nombreEstudiante" placeholder="Escribe tu nombre aquí" />
+
+    <p class="texto-certificado">Por haber completado exitosamente el programa:</p>
+
+    <h2 class="titulo-curso">Marca Personal Imparable</h2>
+
+    <p class="texto-certificado">Fecha de finalización: <span id="fechaActual"></span></p>
+
+    <p class="firma-certificado">Amyolini • Formación Creativa y Estratégica</p>
+
+    <button onclick="descargarPDF()" class="boton-descarga">Descargar PDF</button>
+  </div>
+
+  <script src="./certificado.js"></script>
+</body>
+</html>
