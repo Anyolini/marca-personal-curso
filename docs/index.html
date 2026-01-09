@@ -24,11 +24,14 @@
   <!-- Contenedor donde aparecerán las tarjetas -->
   <div id="flipcard-container"></div>
 
-  <!-- Pantalla de Felicitación AMYOLINI -->
+  <!-- Pantalla de Felicitación AMYOLINI (80% o más) -->
   <div id="celebrationScreen" class="celebration-screen hidden">
-
     <div class="celebration-message simple">
       <h2>¡Has completado este módulo!</h2>
+
+      <p id="celebrationPercentageText">
+        Has alcanzado un nivel de claridad que honra tu compromiso contigo misma.
+      </p>
 
       <p>
         Tu visión se eleva.<br>
@@ -45,7 +48,31 @@
         Continuar al siguiente módulo
       </button>
     </div>
+  </div>
 
+  <!-- Pantalla amorosa si no llega al 80% -->
+  <div id="tryAgainScreen" class="celebration-screen hidden">
+    <div class="celebration-message simple">
+      <h2>Aún no es tu 80%, pero estás muy cerca</h2>
+
+      <p id="tryAgainPercentageText">
+        Tu claridad está creciendo. Lo que sientes ahora no es un fracaso, es información sagrada.
+      </p>
+
+      <p>
+        Este módulo no está aquí para juzgarte,<br>
+        sino para sostenerte mientras te eliges un poco más.
+      </p>
+
+      <p>
+        Si lo sientes en tu cuerpo, volvamos a recorrer este camino
+        con aún más honestidad, calma y amor propio.
+      </p>
+
+      <button id="retryButton" class="celebration-button">
+        Volver a intentarlo
+      </button>
+    </div>
   </div>
 
   <!-- Motor del curso -->
