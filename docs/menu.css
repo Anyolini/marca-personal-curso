@@ -1,0 +1,41 @@
+/* --- Menú AMYOLINI --- */
+.menu-amyolini {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 2px solid #d4af37;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.menu-logo img {
+  height: 45px;
+}
+
+.menu-links {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-links li a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #003366;
+  font-weight: 600;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.menu-links li a:hover {
+  background-color: #d4af37;
+  color: #ffffff;
+  transform: scale(1.05);
+}
