@@ -19,69 +19,32 @@
   <!-- Contenedor donde aparecerán las tarjetas -->
   <div id="flipcard-container"></div>
 
-  <!-- Motor del curso -->
-  <script src="flipcardengine.js"></script>
-<!-- Pantalla de Celebración AMYOLINI -->
-<div id="celebrationScreen" class="celebration-screen hidden">
+  <!-- Pantalla de Felicitación AMYOLINI -->
+  <div id="celebrationScreen" class="celebration-screen hidden">
 
-    <!-- Capa de fondo -->
-    <div class="celebration-background">
-        <div class="background-gradient"></div>
-        <div class="background-lines"></div>
-        <div class="background-particles"></div>
+    <div class="celebration-message simple">
+      <h2>¡Has completado este módulo!</h2>
+
+      <p>
+        Tu visión se eleva.<br>
+        Tu voz se afina.<br>
+        Tu marca comienza a respirar con fuerza propia.
+      </p>
+
+      <p>
+        Este es tu momento dorado.<br>
+        Lo que viene es aún más poderoso.
+      </p>
+
+      <button id="continueButton" class="celebration-button">
+        Continuar al siguiente módulo
+      </button>
     </div>
 
-    <!-- Contenedor principal -->
-    <div class="celebration-content">
-
-        <!-- Montaña -->
-       <!-- Montaña AMYOLINI con puntos dorados -->
-<div class="mountain-container">
-
-  <!-- Base -->
-  <div class="mountain-base mountain-section"></div>
-
-  <!-- Ascenso -->
-  <div class="mountain-mid mountain-section"></div>
-
-  <!-- Cima -->
-  <div class="mountain-top mountain-section"></div>
-
-  <!-- Bandera dorada -->
-  <div class="mountain-flag">
-    <span>MI PROPIA MARCA</span>
   </div>
 
-  <!-- Ruta dorada con puntos -->
-  <svg class="mountain-path" viewBox="0 0 300 200">
-    <path d="M10 180 L100 120 L180 80 L260 40" />
-
-    <!-- Puntos dorados -->
-    <circle cx="10" cy="180" r="6" class="path-dot dot-1"></circle>
-    <circle cx="100" cy="120" r="6" class="path-dot dot-2"></circle>
-    <circle cx="180" cy="80" r="6" class="path-dot dot-3"></circle>
-    <circle cx="260" cy="40" r="6" class="path-dot dot-4"></circle>
-  </svg>
-
-</div>
-
-        <!-- Mensaje poético -->
-        <div class="celebration-message">
-            <h2 id="celebrationTitle"></h2>
-            <p id="celebrationText"></p>
-        </div>
-
-        <!-- Botón editorial -->
-        <button id="continueButton" class="celebration-button">
-            Continuar al siguiente módulo
-        </button>
-
-    </div>
-
-    <!-- Sonido de viento (autoplay + loop) -->
-    <audio id="windSound" src="wind-sound.mp3" loop></audio>
-
-</div>
+  <!-- Motor del curso -->
+  <script src="flipcardengine.js"></script>
 
 </body>
 </html>
