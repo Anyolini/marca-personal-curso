@@ -25,6 +25,13 @@ p.intro {
   margin: 0 auto 2rem auto;
   color: #003366;
 }
+.celebration-screen {
+  pointer-events: none;
+}
+
+.celebration-screen.visible {
+  pointer-events: auto;
+}
 
 /* --- Contenedor principal de tarjetas --- */
 #flipcard-container {
