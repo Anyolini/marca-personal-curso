@@ -34,11 +34,9 @@ let score = 0;
 /* ============================
    Renderizar tarjeta
 ============================ */
-function updateProgress() {
-  const progress = ((currentQuestion) / questions.length) * 100;
-  document.getElementById("progress-bar").style.width = progress + "%";
-}
-
+function renderCard() {
+  const container = document.getElementById("flipcard-container");
+  const q = questions[currentQuestion];
 
   container.innerHTML = `
     <h2>${q.question}</h2>
@@ -52,12 +50,21 @@ function updateProgress() {
 }
 
 /* ============================
+   Barra de progreso
+============================ */
+function updateProgress() {
+  const progress = ((currentQuestion) / questions.length) * 100;
+  document.getElementById("progress-bar").style.width = progress + "%";
+}
+
+/* ============================
    Selección de respuesta
 ============================ */
 function selectOption(index) {
   const q = questions[currentQuestion];
   const container = document.getElementById("flipcard-container");
-updateProgress();
+
+  updateProgress();
 
   if (index === q.correct) {
     score++;
@@ -82,11 +89,9 @@ updateProgress();
 function showCelebrationScreen() {
   const screen = document.getElementById("celebrationScreen");
 
-  // Mostrar pantalla
   screen.classList.remove("hidden");
   setTimeout(() => screen.classList.add("visible"), 50);
 
-  // Botón continuar
   document.getElementById("continueButton").onclick = () => {
     alert("Aquí conectaremos el Módulo 2 ✨");
   };
