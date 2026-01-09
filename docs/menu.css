@@ -39,3 +39,21 @@
   color: #ffffff;
   transform: scale(1.05);
 }
+@media (max-width: 768px) {
+  .menu-amyolini {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .menu-links li a {
+    width: 100%;
+    display: block;
+    padding: 0.8rem;
+  }
+}
