@@ -34,9 +34,11 @@ let score = 0;
 /* ============================
    Renderizar tarjeta
 ============================ */
-function renderCard() {
-  const container = document.getElementById("flipcard-container");
-  const q = questions[currentQuestion];
+function updateProgress() {
+  const progress = ((currentQuestion) / questions.length) * 100;
+  document.getElementById("progress-bar").style.width = progress + "%";
+}
+
 
   container.innerHTML = `
     <h2>${q.question}</h2>
@@ -55,6 +57,7 @@ function renderCard() {
 function selectOption(index) {
   const q = questions[currentQuestion];
   const container = document.getElementById("flipcard-container");
+updateProgress();
 
   if (index === q.correct) {
     score++;
