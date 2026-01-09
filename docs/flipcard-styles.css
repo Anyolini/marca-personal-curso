@@ -143,3 +143,10 @@ p.intro {
   background-color: #d4af37;
   color: #ffffff;
 }
+.celebration-screen {
+  pointer-events: none !important;
+}
+
+.celebration-screen.visible {
+  pointer-events: auto !important;
+}
