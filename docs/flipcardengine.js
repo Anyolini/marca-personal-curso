@@ -74,7 +74,7 @@ function selectOption(index) {
 }
 
 /* ============================
-   Pantalla de celebración
+   Pantalla de felicitación
 ============================ */
 function showCelebrationScreen() {
   const screen = document.getElementById("celebrationScreen");
@@ -82,28 +82,6 @@ function showCelebrationScreen() {
   // Mostrar pantalla
   screen.classList.remove("hidden");
   setTimeout(() => screen.classList.add("visible"), 50);
-
-  // Mensaje poético
-  document.getElementById("celebrationTitle").textContent =
-    "Has conquistado este módulo";
-  document.getElementById("celebrationText").textContent =
-    "Tu visión se eleva, tu voz se afina, y tu marca comienza a respirar con fuerza propia.";
-
-  // Iluminar secciones de la montaña
-  document.querySelector(".mountain-base").classList.add("visible");
-  setTimeout(() => document.querySelector(".mountain-mid").classList.add("visible"), 400);
-  setTimeout(() => document.querySelector(".mountain-top").classList.add("visible"), 800);
-
-  // Activar puntos dorados
-  document.querySelector(".dot-1").classList.add("active");
-  setTimeout(() => document.querySelector(".dot-2").classList.add("active"), 400);
-  setTimeout(() => document.querySelector(".dot-3").classList.add("active"), 800);
-  setTimeout(() => document.querySelector(".dot-4").classList.add("active"), 1200);
-
-  // Reproducir sonido
-  const wind = document.getElementById("windSound");
-  wind.volume = 0.4;
-  wind.play();
 
   // Botón continuar
   document.getElementById("continueButton").onclick = () => {
