@@ -1,0 +1,124 @@
+body {
+  background-color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 2rem 1rem;
+  color: #003366;
+}
+
+h1 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+p.intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  color: #003366;
+}
+
+#flipcard-container {
+  background-color: #f7f4ef;
+  border: 2px solid #d4af37;
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 650px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+  text-align: center;
+}
+
+#flipcard-container h2 {
+  font-size: 1.6rem;
+  color: #003366;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+#flipcard-container button {
+  display: block;
+  width: 100%;
+  background-color: #003366;
+  color: white;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#flipcard-container button:hover {
+  background-color: #d4af37;
+  color: #003366;
+  transform: scale(1.03);
+}
+
+.celebration-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f4d88a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 2s ease;
+  pointer-events: none;
+}
+
+.celebration-screen.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.celebration-message.simple {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+  font-family: 'Georgia', serif;
+  color: #d4af37;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.celebration-button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #ffffff;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.celebration-button:hover {
+  background-color: #d4af37;
+  color: #ffffff;
+}
+
+#progress-wrapper {
+  width: 100%;
+  max-width: 650px;
+  height: 12px;
+  background-color: #f0e6d2;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  margin: 1rem auto 2rem auto;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #d4af37;
+  transition: width 0.6s ease;
+}
