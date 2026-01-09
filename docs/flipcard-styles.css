@@ -84,7 +84,7 @@ p.intro {
   to { opacity: 1; }
 }
 
-/* --- Pantalla dorada minimalista --- */
+/* --- Pantalla dorada / overlays --- */
 .celebration-screen {
   position: fixed;
   top: 0;
